@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>معلومات الشركة</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/details.css">
+</head>
+<body> 
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <h2>السيرة الذاتية</h2>
+                    <!-- <img src="images/logo.png" alt="" class="logo"> -->
+                </div>
+                <ul>
+                    <li><a href="/" class="active">الرئيسية</a></li>
+                    <li><a href="/catgs">التصنيفات</a></li>
+                    <li><a href="/addCharacter">اضف شخصية</a></li>
+                    <li><a href="/addCompany">اضف شركة</a></li>
+                </ul>
+                <ul>
+                    <li>
+                        <select name="" id="" class="flat-select">
+                          <option value="">السعودية</option>
+                          <option value="">مصر</option>
+                          <option value="">قطر</option>
+                          <option value="">الاردن</option>
+                        </select>
+                    </li>
+                    <li class="login-btn">
+                        <li class="login-btn">
+                            <a href="/login">
+                                    <button type="submit" style="background-color: <%= btnColor.value %>">
+                                        <i class="fa-solid fa-user"></i>
+                                        تسجيل الدخول
+                                    </button>
+                            </a>
+                        </li>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-bars menu"></i>
+                    </li>
+                </ul>
+            </nav>
+            <div class="responsive-menu">
+                <ul>
+                    <li><a href="/" class="active">الرئيسية</a></li>
+                    <li><a href="/catgs">التصنيفات</a></li>
+                    <li><a href="/addcharacter">اضف شخصية</a></li>
+                    <li><a href="/addcompany">اضف شركة</a></li>
+                    <li class="login-btn">
+                        <a href="/login">
+                            <button type="submit" style="background-color: <%= btnColor.value %>">
+                                <i class="fa-solid fa-user"></i>
+                                تسجيل الدخول
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section class="header" style="background: linear-gradient(90deg, rgb(43, 156, 255) 0%, rgb(0, 133, 250) 45%, rgb(98, 177, 246) 100%) !important">
+                <div class="content" style="width: 100% !important">
+                    <h1>من هم؟ اكبر مقاعدة بيانات للشخصيات</h1>
+                    <h2>ابحث ضمن 45455 شخصية ومؤسسة</h2>
+                    <div class="search-box">
+                        <form action="/search" method="post" novalidate>
+                            <div class="right">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="search" class="search-input" name="query" placeholder="ابحث عن شخصية او مؤسسة">
+                            </div>
+                            <div class="left">
+                                <button type="submit">ابحث</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="trends">
+                        <button>
+                                <a href="/tags/<%= tag._id %>" style="color: black;">
+                                    <i class="fa-solid fa-arrow-trend-up"></i>
+                                    شخصيات ثمانية
+                                </a>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <h4 class="location">الرئيسية / <span>اسم الشركة</span></h4>
+            <section class="content" id="content"> 
+                <div class="info">
+                    <div class="top">
+                        <div class="image">
+                            <img src="" style="height: 180px;" alt="">
+                        </div>
+                        <div class="text">
+                            <h2 class="characterName">من هو؟ </h2>
+                            <h4 class="nick">الاسم بالانجليزية: </h4>
+                            <h4>البلد: </h4>
+                            <h4>الفرع الرئيسي: </h4>
+                            <h4>رقم الهاتف : </h4>
+                            <h4>الموقع الالكتروني: </h4>
+                            <h4>البريد الالكتروني: </h4>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <h2 class="characterName">من هو؟ اسم الشركة</h2>
+                        <p class="descInfo">
+                            موضوع الشركة
+                        </p>
+                        <div class="sideInfo">
+                            <h2>معلومات جانبية</h2>
+                            <h4>الميزانية : 11مليون</h4>
+                                <h4>Insert New Field And Value</h4>
+                                <form action="/companyInsert" method="post" novalidate>
+                                <label for="fieldName">Name: </label>
+                                <input type="text" placeholder="Field Name" id="fieldName" name="fieldName">
+                                <br>
+                                <label for="fieldValue">Value: </label>
+                                <input type="text" placeholder="Field Value" id="fieldValue" name="fieldValue">
+                                <input type="hidden" name="companyId" value="<%= company._id %>">
+                                <button type="submit">Insert</button>
+                                </form>
+                                <form action="/userUpdateCompany" method="post" novalidate>
+                                    <input type="text" name="company" value="<%= company.englishName %>" hidden>
+                                    <button type="submit">Update</button>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="more">
+                    <div class="characters-box">
+                            <a href="/company/<%= company._id %>">
+                                <div class="character">
+                                    <div class="image">
+                                        <img src="" style="height: 180px;" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <h3 class="char-name" style="color: black;"><%= company.arabicName %></h3>
+                                        <p class="char-bio" style="color: rgb(145, 145, 145);"><%= company.desc.substring(0, 30) %>...</p>
+                                    </div>
+                                </div>
+                            </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer style="background-color: white">
+        <div class="container">
+            <section class="footer">
+                <div class="info">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="">
+                                <h3>منهم؟ </h3>
+                                <h3>اكبر قاعدة بيانات</h3>
+                        <div class="social">
+                            <h4>تابعنا على</h4>
+                            <ul>
+                                <li><i class="fa-brands fa-facebook"></i></li>
+                                <li><i class="fa-brands fa-youtube"></i></li>
+                                <li><i class="fa-brands fa-twitter"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="links">
+                    <div class="col">
+                        <h4>حول من هم</h4>
+                        <ul>
+                            <li><a href="/catgs">التصنيفات</a></li>
+                            <li><a href="/about">عن من هم</a></li>
+                            <li><a href="/privacy">سياسية الخصوصية</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>مواقغ اخرى من مجرة</h4>
+                        <ul>
+                            <li><a href="">هارفارد بيزنس ريفيو</a></li>
+                            <li><a href="">فورتشن 500 العربية</a></li>
+                            <li><a href="">اي ام تي</a></li>
+                            <li><a href="">نفسيتي</a></li>
+                            <li><a href="">فورتشن العربية</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/js/main.js"></script>
+</body>
+</html>
